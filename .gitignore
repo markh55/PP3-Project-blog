@@ -8,3 +8,4 @@ my_env/
 staticfiles/
 media/
 .env
+env.py
