@@ -3,6 +3,7 @@
 ### Table of Content
 
 [Deployment](#deployment)
+[Resources](#resources)
 
 
 
@@ -35,6 +36,16 @@ Then when they deployment is compeleted it would go back to the top of the page 
 <img width="1668" alt="Screenshot 2025-07-03 at 18 02 07" src="https://github.com/user-attachments/assets/122f7c6f-9268-4157-86c8-067b7d8b85cc" />
 
 
+## Resources
 
+* Code Institute
+  * Love Sandwiches
+  * I Think Therefore I Blog
+
+* Djnago 5 By Example by Antonio Mele
+
+* Documentation for Django - https://docs.djangoproject.com/en/5.2/
+
+    
 
 
