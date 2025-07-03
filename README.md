@@ -4,10 +4,31 @@ This project is designed to share content and give users the ability to fully in
 
 ### Table of Content
 
+* [Planning](#planning)
+   * [User Stories](#user-stories)
 * [Deployment](#deployment)
 * [Resources](#resources)
 
 
+## Planning
+
+### User Stories
+
+* As a user, I want to sign up and log in so that I can create and manage my own blog posts.
+
+* As a logged-in user, I want to create a new blog post so that I can share content on the platform.
+
+* As a user, I want to browse and read blog posts created by others so I can engage with their content.
+
+* As a logged-in user, I want to edit my own blog posts so I can update or improve my content.
+
+* As a logged-in user, I want to delete my blog posts so I can remove content I no longer want to share.
+
+* As a user, I want a simple and responsive layout with clear navigation so I can easily find what I’m looking for.
+
+* As a developer, I want to ensure blog posts are stored in a relational database linked to user accounts so that data is organized and secure.
+
+* As a developer, I want to deploy the project to Heroku so users can access it online easily.
 
 ## Deployment 
 
