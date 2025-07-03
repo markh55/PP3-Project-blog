@@ -4,8 +4,8 @@ This project is designed to share content and give users the ability to fully in
 
 ### Table of Content
 
-[Deployment](#deployment)
-[Resources](#resources)
+* [Deployment](#deployment)
+* [Resources](#resources)
 
 
 
