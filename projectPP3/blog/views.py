@@ -14,4 +14,3 @@ def post_detail(request, id):
         raise Http404("Post does not exist")
     return render
     (request, 'blog/post/detail.html', {'post': post})
-    
