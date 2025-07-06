@@ -43,12 +43,17 @@
         </nav>
 
         <!-- Main content -->
-        <div id="container" class="container mt-4">
-            {% block content %}
-            {% endblock %}
-        </div>
+         <div id="container" class="container mt-4">
+    <main class="flex-shrink-0 main-bg">
+        {% if user.is_authenticated %}
+            <p class="text-end m-3">You are logged in as {{ user }}</p>
+        {% else %}
+            <p class="text-end m-3">You are not logged in</p>
+        {% endif %}
+    </main>
 
-        <div id="sidebar" class="container mt-4">
+    {% block content %}
+    {% endblock %}
         </div>
 
         <!-- Footer -->

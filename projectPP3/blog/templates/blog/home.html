@@ -8,18 +8,4 @@
     <h1>Welcome to Devbase</h1>
     <p class="lead">For developers and passionate enthusiasts alike, DevBase is your space to share ideas, spark conversations, and dive into the ever-evolving world of code and creativity. Whether you're here to write your thoughts, learn something new, or simply see what others are building, you're in the right place. This is more than just a blog — it's a community built around curiosity, collaboration, and expression. So take a look around, get involved, and make yourself at home. This is your base. Let’s build something great together.</p>
 
-
-
-    {% if user.is_authenticated %}
-      <p>You’re already logged in! <a href="{% url 'blog:post_list' %}">View posts</a></p>
-      <p>
-  <a href="{% url 'account_logout' %}" class="btn btn-secondary mt-2">Sign out</a>
-</p>
-    {% else %}
-    <div class="mt-5 text-center">
-      <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Log in</a>
-      <p class="mt-2">Or <a href="{% url 'account_signup' %}">create an account</a></p>
-      </div>
-    {% endif %}
-  </div>
 {% endblock %}
