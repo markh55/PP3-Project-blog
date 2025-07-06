@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+  <div class="text-center mt-5">
+    <h1>Welcome to Devbase</h1>
+    <p class="lead">A place to post and share ideas.</p>
+
+    {% if user.is_authenticated %}
+      <p>You’re already logged in! <a href="{% url 'blog:post_list' %}">View posts</a></p>
+    {% else %}
+      <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Log in</a>
+      <p class="mt-2">Or <a href="{% url 'account_signup' %}">create an account</a></p>
+    {% endif %}
+  </div>
+{% endblock %}
