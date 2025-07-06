@@ -3,17 +3,31 @@
 <html lang="en">
 <head>
     <title>{% block title %}Blog{% endblock %}</title>
-    <!-- Add your CSS files here -->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 
 <body>
+    <header>
+        <h1>Devbase</h1>
+        {% if not request.path == '/' %}
+            <nav>
+                <a href="{% url 'blog:post_list' %}">Home</a> |
+                <a href="javascript:history.back()">Back</a>
+            </nav>
+        {% endif %}
+    </header>
+
     <div id="container">
         {% block content %}
         {% endblock %}
     </div>
+    
     <div id="sidebar">
-        <h2>Blog</h2>
-        <p>Welcome to the blog!</p>
+        <p>Welcome to Devbase!</p>
     </div>
+
+    <footer>
+        <p>&copy; 2025 My Blog</p>
+    </footer>
 </body>
 </html>
