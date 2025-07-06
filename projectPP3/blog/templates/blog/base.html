@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Blog{% endblock %}</title>
+    <!-- Add your CSS files here -->
+</head>
+
+<body>
+    <div id="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div id="sidebar">
+        <h2>Blog</h2>
+        <p>Welcome to the blog!</p>
+    </div>
+</body>
+</html>
