@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+  <a href="javascript:history.back()" class="btn btn-secondary mb-4">← Back</a>
+
   <h1>{{ post.title }}</h1>
   <p class="date">
     Published {{ post.publish }} by {{ post.author }}
