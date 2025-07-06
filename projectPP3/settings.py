@@ -57,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'projectPP3.urls'
@@ -66,7 +67,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'projectPP3', 'blog', 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'projectPP3', 'blog', 'templates', 'blog')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'projectPP3', 'blog', 'templates', 'blog'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,6 +82,21 @@ TEMPLATES = [
         },
     },
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 WSGI_APPLICATION = 'projectPP3.wsgi.application'
 
@@ -114,6 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
