@@ -9,6 +9,9 @@
 
     {% if user.is_authenticated %}
       <p>You’re already logged in! <a href="{% url 'blog:post_list' %}">View posts</a></p>
+      <p>
+  <a href="{% url 'account_logout' %}" class="btn btn-secondary mt-2">Sign out</a>
+</p>
     {% else %}
       <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Log in</a>
       <p class="mt-2">Or <a href="{% url 'account_signup' %}">create an account</a></p>
