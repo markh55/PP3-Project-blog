@@ -1,11 +1,12 @@
+from django.contrib.auth import get_user_model
+from django.test import TestCase
+
 from allauth.account.models import EmailAddress
 from allauth.account.utils import user_email, user_username
-from allauth.socialaccount import app_settings
 from allauth.socialaccount.models import SocialAccount
 from allauth.socialaccount.providers.discord.provider import DiscordProvider
 from allauth.socialaccount.tests import OAuth2TestsMixin
-from allauth.tests import MockedResponse, TestCase
-from allauth.utils import get_user_model
+from allauth.tests import MockedResponse
 
 
 class DiscordTests(OAuth2TestsMixin, TestCase):
@@ -25,9 +26,10 @@ class DiscordTests(OAuth2TestsMixin, TestCase):
         }""",
         )
 
+    def get_expected_to_str(self):
+        return "Nelly"
+
     def test_display_name(self, multiple_login=False):
-        if not app_settings.STORE_TOKENS:
-            return
         email = "user@example.com"
         user = get_user_model()(is_active=True)
         user_email(user, email)
@@ -68,9 +70,10 @@ class OldDiscordTests(DiscordTests, TestCase):
         }""",
         )
 
+    def get_expected_to_str(self):
+        return "Nelly#1337"
+
     def test_display_name(self, multiple_login=False):
-        if not app_settings.STORE_TOKENS:
-            return
         email = "user@example.com"
         user = get_user_model()(is_active=True)
         user_email(user, email)

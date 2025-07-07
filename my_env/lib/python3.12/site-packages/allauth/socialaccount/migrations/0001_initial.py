@@ -1,12 +1,7 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.conf import settings
 from django.db import migrations, models
 
-import allauth.socialaccount.fields
 from allauth import app_settings
-from allauth.socialaccount.providers import registry
 
 
 class Migration(migrations.Migration):
@@ -16,10 +11,9 @@ class Migration(migrations.Migration):
         ]
         if app_settings.SITES_ENABLED
         else []
-        + [
-            migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ]
-    )
+    ) + [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+    ]
 
     operations = [
         migrations.CreateModel(
@@ -39,7 +33,6 @@ class Migration(migrations.Migration):
                     models.CharField(
                         max_length=30,
                         verbose_name="provider",
-                        choices=registry.as_choices(),
                     ),
                 ),
                 (
@@ -61,9 +54,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "extra_data",
-                    allauth.socialaccount.fields.JSONField(
-                        default="{}", verbose_name="extra data"
-                    ),
+                    models.TextField(default="{}", verbose_name="extra data"),
                 ),
                 (
                     "user",
@@ -95,7 +86,6 @@ class Migration(migrations.Migration):
                     models.CharField(
                         max_length=30,
                         verbose_name="provider",
-                        choices=registry.as_choices(),
                     ),
                 ),
                 ("name", models.CharField(max_length=40, verbose_name="name")),
