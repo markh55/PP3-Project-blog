@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 
 # Register your models here.
-
+@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'author', 'publish', 'status')
     list_filter = ('status', 'created', 'publish', 'author')
@@ -13,4 +13,8 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ('status', 'publish')
     show_facets = admin.ShowFacets.ALWAYS
 
-admin.site.register(Post, PostAdmin)
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('post', 'author', 'approved', 'created_on')
+    list_filter = ('approved', 'created_on')
+    search_fields = ('author__username', 'body')
