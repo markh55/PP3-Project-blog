@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .models import Post
+from django.urls import reverse
+from .models import Post, Comment
 from .forms import CommentForm
 
 
@@ -27,7 +29,7 @@ def post_detail(request, id):
             messages.add_message(
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
-    )
+            )
     else:
         comment_form = CommentForm()
 
@@ -42,6 +44,33 @@ def post_detail(request, id):
         }
     )
 
+@login_required
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+
+    if request.method == "POST":
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Comment updated successfully.")
+            return HttpResponseRedirect(reverse('blog:post_detail', kwargs={'id': comment.post.id}))
+    else:
+        form = CommentForm(instance=comment)
+
+    return render(request, 'blog/edit_comment.html', {'form': form, 'comment': comment})
+
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+
+    if request.method == "POST":
+        post_id = comment.post.id
+        comment.delete()
+        messages.success(request, "Comment deleted successfully.")
+        return HttpResponseRedirect(reverse('blog:post_detail', kwargs={'id': post_id}))
+
+    return render(request, 'blog/delete_comment.html', {'comment': comment})
+
 def home_view(request):
     return render(request, 'blog/home.html')
-
