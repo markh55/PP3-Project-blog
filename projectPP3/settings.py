@@ -110,10 +110,11 @@ WSGI_APPLICATION = 'projectPP3.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://mark:Arlo102018@localhost:5432/pp3db',
+        default=os.getenv('DATABASE_URL', 'postgres://mark:Arlo102018@localhost:5432/pp3db'),
         conn_max_age=600
     )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
