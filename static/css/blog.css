@@ -33,3 +33,155 @@ footer {
   background-color: #f9f9f9;
   color: #555;
 }
+
+/* Layout: Comment Form Above Comments List */
+.comments-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Comments Container */
+.comments {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  position: relative;
+  transition: background 0.3s;
+}
+
+/* Pending Comments Styling */
+.comments.faded {
+  opacity: 0.7;
+  background-color: #fffbe6;
+  border-color: #ffe58f;
+}
+
+/* Comment Header */
+.comments p.font-weight-bold {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+/* Approval Badge */
+.approval {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Edit/Delete Buttons Top Right */
+.comments .mt-2 {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.comments .btn {
+  margin-left: 5px;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+}
+
+/* Comment Body */
+.comments #comment {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+/* Comment Form Styles */
+.comment-form {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* Button Style */
+.btn-signup {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-signup:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .comments .mt-2 {
+    position: static;
+    margin-top: 10px;
+    text-align: right;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
