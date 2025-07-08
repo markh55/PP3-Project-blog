@@ -30,10 +30,33 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 ">
-      <h3>Comments:</h3>
+    <div class="row" id="comment">
+  <div class="col-md-12 card mb-4  mt-3 ">
+    <div class="card-body">
+        {% if user.is_authenticated %}
+        <p>Posting as: {{ user.username }}</p>
+        <form id="commentForm" method="post" class="mt-4">
+      {% csrf_token %}
+      <div class="mb-3">
+    <label for="id_body" class="visually-hidden">Comment</label>
+    <textarea name="body" id="id_body" class="form-control auto-expand" rows="1" placeholder="Leave a comment..." required></textarea>
+  </div>
+  <div class="text-center">
+    <button id="submitButton" type="submit" class="btn btn-primary btn-sm">Submit</button>
+  </div>
+      </form>
+        {% else %}
+        <p>Log in to leave a comment</p>
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="comment">
+    <div class="col-md-12 card mb-4  mt-3 ">
       <div class="card-body">
+      <h3>Comments:</h3>
         {% for comment in comments %}
         <div class="p-2 comments
           {% if not comment.approved and comment.author == user %}
@@ -65,24 +88,6 @@
 {% endfor %}
       </div>
     </div>
-    <!-- Creating New Comments -->
-    <div class="col-md-4 card mb-4 mt-3">
-      <div class="card-body">
-        {% if user.is_authenticated %}
-        <h3>Leave a comment:</h3>
-        <p>Posting as: {{ user.username }}</p>
-        <form id="commentForm" method="post"
-          style="margin-top: 1.3em;">
-          {{ comment_form | crispy }}
-          {% csrf_token %}
-          <button id="submitButton" type="submit"
-            class="btn btn-signup btn-lg">Submit</button>
-        </form>
-        {% else %}
-        <p>Log in to leave a comment</p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
+    <!-- Creating New Comments --
 
 {% endblock %}
