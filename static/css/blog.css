@@ -26,6 +26,15 @@ body {
   }
 }
 
+/* Blog Posts */
+
+.container .mt-4 {
+  border: 1px solid #222;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Footer tweaks */
 footer {
   text-align: center;
