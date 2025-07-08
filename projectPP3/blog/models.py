@@ -9,8 +9,6 @@ class PublishedManager(models.Manager):
         return (
             super().get_queryset().filter(status=Post.Status.PUBLISHED)
         )
-
-
 class Post(models.Model):
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
@@ -35,7 +33,6 @@ class Post(models.Model):
 
     objects = models.Manager()
     published = PublishedManager()
-
     class Meta:
         ordering = ['-publish']
         indexes = [
@@ -44,8 +41,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
@@ -54,7 +49,6 @@ class Comment(models.Model):
     body = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
-
     class Meta:
         ordering = ["-created_on"]
     def __str__(self):
