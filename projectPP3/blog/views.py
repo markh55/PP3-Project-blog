@@ -12,7 +12,18 @@ def post_list(request):
 @login_required
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id, status=Post.Status.PUBLISHED)
-    return render(request, 'blog/post/detail.html', {'post': post})
+    comments = post.comments.all().order_by("-created_on")
+    comment_count = post.comments.filter(approved=True).count()
+
+    return render(
+        request,
+        'blog/post/detail.html',
+        {
+            'post': post,
+            'comments': comments,
+            'comment_count': comment_count,
+        }
+    )
 
 def home_view(request):
     return render(request, 'blog/home.html')
