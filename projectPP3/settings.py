@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'django_summernote',
     'projectPP3.blog',
 ]
@@ -60,6 +62,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = 'blog:post_list'
+LOGOUT_REDIRECT_URL = '/'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 ROOT_URLCONF = 'projectPP3.urls'
 
@@ -84,21 +95,6 @@ TEMPLATES = [
     },
 ]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 WSGI_APPLICATION = 'projectPP3.wsgi.application'
 
 
@@ -118,15 +114,6 @@ DATABASES = {
         conn_max_age=600
     )
 }
-
-
-
-
-
-
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -179,10 +166,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-SITE_ID = 1
-
-LOGIN_REDIRECT_URL = 'blog:post_list'
-LOGOUT_REDIRECT_URL = '/'
 
 
