@@ -8,15 +8,12 @@ This project is designed to share content and give users the ability to fully in
    * [User Stories](#user-stories)
 * [Deployment](#deployment)
 * [Resources](#resources)
+* [Credits](#credits)
 
 
 ## Planning
 
 ### User Stories
-
-* As a user, I want to sign up and log in so that I can create and manage my own blog posts.
-
-* As a logged-in user, I want to create a new blog post so that I can share content on the platform.
 
 * As a user, I want to browse and read blog posts created by others so I can engage with their content.
 
@@ -70,5 +67,5 @@ Then when they deployment is compeleted it would go back to the top of the page 
 * Documentation for Django - https://docs.djangoproject.com/en/5.2/
 
     
-
+## Credits
 
