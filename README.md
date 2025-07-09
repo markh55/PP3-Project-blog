@@ -6,6 +6,7 @@ This project is designed to share content and give users the ability to fully in
 
 * [Planning](#planning)
    * [User Stories](#user-stories)
+   * [Wireframes](#wireframes)
 * [Deployment](#deployment)
 * [Resources](#resources)
 * [Credits](#credits)
@@ -25,7 +26,24 @@ This project is designed to share content and give users the ability to fully in
 
 * As a developer, I want to ensure blog posts are stored in a relational database linked to user accounts so that data is organized and secure.
 
-* As a developer, I want to deploy the project to Heroku so users can access it online easily.
+
+### Wireframes
+With the design the aim was to make it clean and simple for you user to be able to navigate the site with ease, before any coding have taken place i came up with the below wireframe to repesent the vision i had for the project site.
+
+### Welcome Page - 
+![Welcome page](https://github.com/user-attachments/assets/8dd0a206-6e3b-4659-bd20-bf09ae1fb627)
+
+### Sign up Page -
+![SignIn ](https://github.com/user-attachments/assets/cab34964-6a65-4fed-9f56-d283b1e8a7a8)
+
+
+### Blog Homepage - 
+![Blog homepage](https://github.com/user-attachments/assets/f6200832-18ee-4d6a-813d-e3a295013f36)
+
+
+### Blog Page - 
+![Blog Page](https://github.com/user-attachments/assets/84e90daf-46d2-49ff-9d10-5328887007be)
+
 
 ## Deployment 
 
