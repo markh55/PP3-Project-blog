@@ -12,7 +12,7 @@ This project is designed to share content and give users the ability to fully in
 * [Deployment](#deployment)
 * [Testing](#testing)
 * [Feedback](#feedback)
-* [Technologies Used](#technologies-used)
+* [Tech Stack](#tech-stack)
 * [Resources](#resources)
 * [Credits](#credits)
 
@@ -87,7 +87,15 @@ Then when they deployment is compeleted it would go back to the top of the page 
 
 ## Feedback
 
-## Technologies Used
+## Tech Stack
+*	Django 5.0.14
+*	HTML (Django templates)
+*	CSS / Bootstrap 5
+*	PostgreSQL
+*	Heroku (deployment)
+
+
+
 
 ## Resources
 
