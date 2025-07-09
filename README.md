@@ -7,7 +7,12 @@ This project is designed to share content and give users the ability to fully in
 * [Planning](#planning)
    * [User Stories](#user-stories)
    * [Wireframes](#wireframes)
+   * [Colour Scheme](#colour-scheme)
+* [Final Design](#final-design)
 * [Deployment](#deployment)
+* [Testing](#testing)
+* [Feedback](#feedback)
+* [Technologies Used](#technologies-used)
 * [Resources](#resources)
 * [Credits](#credits)
 
@@ -44,6 +49,10 @@ With the design the aim was to make it clean and simple for you user to be able 
 ### Blog Page - 
 ![Blog Page](https://github.com/user-attachments/assets/84e90daf-46d2-49ff-9d10-5328887007be)
 
+### Colour Scheme
+
+
+## Final Design
 
 ## Deployment 
 
@@ -73,6 +82,12 @@ Then when they deployment is compeleted it would go back to the top of the page 
 
 <img width="1668" alt="Screenshot 2025-07-03 at 18 02 07" src="https://github.com/user-attachments/assets/122f7c6f-9268-4157-86c8-067b7d8b85cc" />
 
+## Testing
+
+
+## Feedback
+
+## Technologies Used
 
 ## Resources
 
