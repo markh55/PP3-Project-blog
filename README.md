@@ -1,6 +1,8 @@
 # PP3-Project-blog
 
-This project is designed to share content and give users the ability to fully interact with it. You can create your own posts, read what others have shared, update your entries, or delete them whenever you like. Whether you're here to write, browse, or both, the goal is to make the experience smooth, enjoyable, and engaging. Dive in and be part of the journey!
+##Devbase
+
+Devbase is to share content and give users the ability to fully interact with it. You can create your own posts, read what others have shared, update your entries, or delete them whenever you like. Whether you're here to write, browse, or both, the goal is to make the experience smooth, enjoyable, and engaging. Dive in and be part of the journey!
 
 ### Table of Content
 
