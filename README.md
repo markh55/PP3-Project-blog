@@ -53,11 +53,11 @@ With the design the aim was to make it clean and simple for you user to be able 
 ![Blog Page](https://github.com/user-attachments/assets/84e90daf-46d2-49ff-9d10-5328887007be)
 
 ### Logo
-i came up with the devbase logo when thinking of things to call my blog instead of the classic "My Blog" so my thougt process is as follows;
+i came up with the devbase logo when thinking of things to call my blog instead of the classic "My Blog" so my thought process was;
 
-Dev - this is just developer shortened.
+Dev - This is just developer but shortened.
 
-Base - the thinking behind this part of the name is that the developer would have somewhere to connect and make a digital home.
+Base - The thinking behind this part of the name is that the developer would have somewhere to connect and make a digital home.
 
 the logo itself is something unique and relevent, the logo is made up of a < symbol and a curly brace }, when you put them together like this <} it forms the D from Devbase but also repesenting the world of programming at the same time.
 
