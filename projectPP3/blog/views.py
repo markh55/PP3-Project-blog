@@ -10,7 +10,7 @@ from .forms import CommentForm
 
 
 # Create your views here.
-@login_required
+
 def post_list(request):
     posts = Post.published.all()
     return render(request, 'blog/post/list.html', {'posts': posts})
@@ -58,13 +58,13 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 
-@login_required
+
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk, status=Post.Status.PUBLISHED)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
 
-    if request.method == "POST":
+    if request.method == "POST" and request.user.is_authenticated:
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
