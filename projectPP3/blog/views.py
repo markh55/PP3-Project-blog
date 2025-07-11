@@ -3,9 +3,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from .models import Post, Comment
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from .forms import CommentForm
 
 
@@ -31,7 +31,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'body']
     template_name = 'blog/post/post_form.html'
-    pk_url_kwarg = 'id'
+
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -44,9 +44,23 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         return False
 
+# DeleteView - user to be able to delete their blog
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Post
+    template_name = 'blog/post/post_confirm_delete.html'
+    success_url = reverse_lazy('blog:post_list')
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+
+
+
 @login_required
-def post_detail(request, id):
-    post = get_object_or_404(Post, id=id, status=Post.Status.PUBLISHED)
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk, status=Post.Status.PUBLISHED)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
 
@@ -84,7 +98,7 @@ def edit_comment(request, comment_id):
         if form.is_valid():
             form.save()
             messages.success(request, "Comment updated successfully.")
-            return HttpResponseRedirect(reverse('blog:post_detail', kwargs={'id': comment.post.id}))
+            return HttpResponseRedirect(reverse('blog:post_detail', kwargs={'pk': comment.post.id}))
     else:
         form = CommentForm(instance=comment)
 
@@ -99,7 +113,7 @@ def delete_comment(request, comment_id):
         post_id = comment.post.id
         comment.delete()
         messages.success(request, "Comment deleted successfully.")
-        return HttpResponseRedirect(reverse('blog:post_detail', kwargs={'id': post_id}))
+        return HttpResponseRedirect(reverse('blog:post_detail', kwargs={'pk': post_id}))
 
     return render(request, 'blog/delete_comment.html', {'comment': comment})
 
