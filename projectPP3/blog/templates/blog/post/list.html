@@ -5,7 +5,7 @@
 {% block content %}
 <h1>Blog Posts</h1>
 <!-- User create new post button -->
-<a href="{% url 'blog:post_create' %}" class="btn btn-primary mb-4" id="newpost-btn">Create New Post</a>
+<a href="{% url 'blog:post_create' %}" class="btn btn-primary mb-4" id="newpost-btn">New Blog</a>
 
 {% for post in posts %}
   <div class="post-box mt-4">

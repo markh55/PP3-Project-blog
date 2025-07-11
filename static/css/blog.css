@@ -26,6 +26,15 @@ body {
   }
 }
 
+/* New Post button on list.html */
+
+#newpost-btn {
+position: absolute;
+right: 440px;
+top: 270px;
+
+}
+
 /* Blog Posts */
 
 .container .mt-4 {
