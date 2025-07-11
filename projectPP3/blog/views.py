@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse
 from .models import Post, Comment
+from django.views.generic import CreateView, UpdateView
 from .forms import CommentForm
 
 
@@ -12,6 +14,35 @@ from .forms import CommentForm
 def post_list(request):
     posts = Post.published.all()
     return render(request, 'blog/post/list.html', {'posts': posts})
+
+# CreateView - User to be able to post own blog
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title', 'body']
+    template_name = 'blog/post/post_form.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.status = 'PB'
+        return super().form_valid(form)
+
+# user to update their blog post
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Post
+    fields = ['title', 'body']
+    template_name = 'blog/post/post_form.html'
+    pk_url_kwarg = 'id'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.status = 'PB'
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
 
 @login_required
 def post_detail(request, id):
