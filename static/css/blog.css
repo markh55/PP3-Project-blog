@@ -12,6 +12,11 @@ body {
   height: auto;
 }
 
+.main-bg {
+  padding-bottom: 2rem;
+}
+
+
 @media (max-width: 576px) {
   .logo {
     max-width: 120px;
@@ -20,12 +25,7 @@ body {
   body {
     padding: 0.5rem;
   }
-
-  .main-bg {
-    padding: 0 0.5rem;
-  }
 }
-
 /* New Post button on list.html */
 .posts-wrapper {
   width: 100%;
