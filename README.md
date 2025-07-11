@@ -17,7 +17,7 @@ Devbase is to share content and give users the ability to fully interact with it
 * [Feedback](#feedback)
 * [Tech Stack](#tech-stack)
 * [Resources](#resources)
-* [Credits](#credits)
+* [Credits / Tutorials](#credits--tutorials)
 
 
 ## Planning
@@ -124,5 +124,11 @@ Then when they deployment is compeleted it would go back to the top of the page 
 * Documentation for Django - https://docs.djangoproject.com/en/5.2/
 
     
-## Credits
+## Credits / Tutorials
 
+### Source used
+
+Correy Schafer - Python Django Tutorial: Full-Featured Web App Part 10 - Create, Update, and Delete Posts 
+[Watched on YouTube](https://www.youtube.com/watch?v=-s7e_Fy6NRU&list=PL3ogf06gmD4herEB1HXBkfFBsTtZjGBuh)
+
+I used this tutorial to help add the user adding post function. This tutorial was a guide and I changed the code to suit my project. It was only a guide.
