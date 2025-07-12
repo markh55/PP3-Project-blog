@@ -1,36 +1,35 @@
 {% extends "base.html" %}
 
-
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
   <div class="text-center mt-5">
     <h1>Welcome to Devbase</h1>
-    <p class="lead">For developers and passionate enthusiasts alike, DevBase is your space to share ideas, spark conversations, and dive into the ever-evolving world of code and creativity. Whether you're here to write your thoughts, learn something new, or simply see what others are building, you're in the right place. This is more than just a blog — it's a community built around curiosity, collaboration, and expression. So take a look around, get involved, and make yourself at home. This is your base. Let’s build something great together.</p>
-</div>
-<!-- code modified from https://stackoverflow.com/questions/75190346/way-to-show-latest-4-blog-posts-on-my-page to suite my project and what i needed.-->
-<div class="blog-post-container mt-5">
-  <div class="row">
-    <h1 id="latest-blogs-title" style="text-align: center;">Latest Blogs</h1>
-    {% for latestpost in latest_posts %}
-      <div class="col-md-4" id="bloggrid1">
-        <hr>
-        <div class="blog-post">
-          <div class="blog-content">
-            <h2 class="blog-title">{{ latestpost.title }}</h2>
-            <hr id="blog-hr" style="width: 90%" />
-            <article class="blog-article">
-              <p>{{ latestpost.body|truncatechars_html:265|safe }}</p>
-            </article>
-            <a href="{% url 'blog:post_detail' latestpost.pk %}" class="btn btn-secondary blog-button">Read More...</a>
-            <p class="blog-date">Posted on: {{ latestpost.publish }}</p>
+    <p class="lead">
+      For developers and passionate enthusiasts alike, DevBase is your space to share ideas, spark conversations, and dive into the ever-evolving world of code and creativity. Whether you're here to write your thoughts, learn something new, or simply see what others are building, you're in the right place. This is more than just a blog — it's a community built around curiosity, collaboration, and expression. So take a look around, get involved, and make yourself at home. This is your base. Let’s build something great together.
+    </p>
+  </div>
+
+  <div class="blog-post-container mt-5">
+    <h1 id="latest-blogs-title" class="text-center">Latest Blogs</h1>
+    <div class="row">
+      {% for latestpost in latest_posts %}
+        <div class="col-md-4 bloggrid">
+          <hr class="blog-hr" style="width: 90%" />
+          <div class="blog-post">
+            <div class="blog-content">
+              <article class="blog-article">
+                <h2 class="blog-title">{{ latestpost.title }}</h2>
+                <p>{{ latestpost.body|truncatechars_html:265|safe }}</p>
+              </article>
+              <a href="{% url 'blog:post_detail' latestpost.pk %}" class="btn btn-secondary blog-button">Read More...</a>
+              <p class="blog-date">Posted on: {{ latestpost.publish }}</p>
+            </div>
           </div>
         </div>
-      </div>
-    {% empty %}
-      <h3>No Blog Uploads</h3>
-    {% endfor %}
+      {% empty %}
+        <h3 class="text-center">No Blog Uploads</h3>
+      {% endfor %}
+    </div>
   </div>
-</div>
-
 {% endblock %}

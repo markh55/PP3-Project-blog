@@ -14,7 +14,7 @@
 <a href="javascript:history.back()" class="btn btn-secondary mb-4">← Back</a>
 
 <h1>{{ post.title }}</h1>
-<p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+<p class="date">Published {{ post.publish|date:"F j, Y, g:i a" }} by {{ post.author }}</p>
 
 {% if user.is_authenticated and user == post.author %}
 <div class="mb-4">
@@ -23,7 +23,24 @@
 </div>
 {% endif %}
 
-{{ post.body|safe }}
+<div id="post-body-container">
+  {{ post.body|safe }}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const uls = document.querySelectorAll('#post-body-container ul');
+    uls.forEach(ul => {
+      [...ul.children].forEach(child => {
+        if (child.tagName === 'SPAN') {
+          const li = document.createElement('li');
+          li.innerHTML = child.innerHTML;
+          ul.replaceChild(li, child);
+        }
+      });
+    });
+  });
+</script>
 
 <div class="row">
   <div class="col-12">
@@ -37,7 +54,7 @@
 </div>
 
 <!-- Creating new comment -->
-<div class="row" id="comment">
+<div class="row" id="comment-form">
   <div class="col-md-12 card mb-4 mt-3">
     <div class="card-body">
       {% if user.is_authenticated %}
@@ -46,7 +63,7 @@
         {% csrf_token %}
         <div class="mb-3">
           <label for="id_body" class="visually-hidden">Comment</label>
-          <textarea name="body" id="id_body" class="form-control auto-expand" rows="1" placeholder="Leave a comment..." required></textarea>
+          <textarea name="body" id="id_body" class="form-control auto-expand" rows="3" placeholder="Leave a comment..." required></textarea>
         </div>
         <div class="text-center">
           <button id="submitButton" type="submit" class="btn btn-primary btn-sm">Submit</button>
@@ -60,30 +77,34 @@
 </div>
 
 <!-- Display comments -->
-<div class="row" id="comment">
+<div class="row" id="comment-list">
   <div class="col-md-12 card mb-4 mt-3">
     <div class="card-body">
       <h3>Comments:</h3>
-      {% for comment in comments %}
-      <div class="p-2 comments {% if not comment.approved and comment.author == user %}faded{% elif not comment.approved %} d-none{% endif %}">
-        <p class="font-weight-bold">
-          {{ comment.author }}
-          <span class="font-weight-normal">{{ comment.created_on }}</span> wrote:
-        </p>
-        <div id="comment{{ comment.id }}">{{ comment.body | linebreaks }}</div>
+      {% if comments %}
+        {% for comment in comments %}
+        <div class="p-2 comments {% if not comment.approved and comment.author == user %}faded{% elif not comment.approved %} d-none{% endif %}">
+          <p class="font-weight-bold">
+            {{ comment.author }}
+            <span class="font-weight-normal">{{ comment.created_on|date:"F j, Y, g:i a" }}</span> wrote:
+          </p>
+          <div id="comment{{ comment.id }}">{{ comment.body | linebreaks }}</div>
 
-        {% if not comment.approved and comment.author == user %}
-        <p class="approval">This comment is awaiting approval</p>
-        {% endif %}
+          {% if not comment.approved and comment.author == user %}
+          <p class="approval">This comment is awaiting approval</p>
+          {% endif %}
 
-        {% if comment.author == user %}
-        <div class="mt-2">
-          <a href="{% url 'blog:edit_comment' comment.id %}" class="btn btn-sm btn-primary">Edit</a>
-          <a href="{% url 'blog:delete_comment' comment.id %}" class="btn btn-sm btn-danger">Delete</a>
+          {% if comment.author == user %}
+          <div class="mt-2">
+            <a href="{% url 'blog:edit_comment' comment.id %}" class="btn btn-sm btn-primary">Edit</a>
+            <a href="{% url 'blog:delete_comment' comment.id %}" class="btn btn-sm btn-danger">Delete</a>
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
-      </div>
-      {% endfor %}
+        {% endfor %}
+      {% else %}
+        <p>No comments yet. Be the first!</p>
+      {% endif %}
     </div>
   </div>
 </div>
