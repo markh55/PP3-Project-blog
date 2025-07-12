@@ -128,7 +128,16 @@ Then when they deployment is compeleted it would go back to the top of the page 
 
 ### Source used
 
-Correy Schafer - Python Django Tutorial: Full-Featured Web App Part 10 - Create, Update, and Delete Posts 
+* Correy Schafer - Python Django Tutorial: Full-Featured Web App Part 10 - Create, Update, and Delete Posts 
 [Watched on YouTube](https://www.youtube.com/watch?v=-s7e_Fy6NRU&list=PL3ogf06gmD4herEB1HXBkfFBsTtZjGBuh)
+I used this tutorial to help implement the functionality for users to add blog posts. The tutorial served as a guide, and I adapted the code to fit the needs of my project.
 
-I used this tutorial to help add the user adding post function. This tutorial was a guide and I changed the code to suit my project. It was only a guide.
+* Django Documentation – Limiting QuerySets
+[Limiting QuerySets](https://docs.djangoproject.com/en/5.2/ref/models/querysets/#limiting-querysets)
+
+   I referenced this documentation to learn how to limit the number of posts shown on the homepage. I modified the example code to display the latest 3 posts in    my own template.
+  
+* stack overflow - Show latest blog posts
+[Show latest blog posts](https://stackoverflow.com/questions/75190346/way-to-show-latest-4-blog-posts-on-my-page)
+
+   Question by David Henson, answered by Mas Zero. I used this as a reference for structuring the query and template logic to display the most recent posts. The    code was adapted to suit my models and template structure.
