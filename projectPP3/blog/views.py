@@ -118,4 +118,7 @@ def delete_comment(request, comment_id):
     return render(request, 'blog/delete_comment.html', {'comment': comment})
 
 def home_view(request):
-    return render(request, 'blog/home.html')
+    latest_posts = Post.published.all()[:3] # code modified form - https://docs.djangoproject.com/en/5.2/ref/models/querysets/#limiting-querysets. to show 3 latest posts on home.html
+    return render(request, 'blog/home.html', {'latest_posts': latest_posts})
+
+

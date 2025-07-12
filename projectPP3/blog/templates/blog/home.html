@@ -9,44 +9,32 @@
     <p class="lead">For developers and passionate enthusiasts alike, DevBase is your space to share ideas, spark conversations, and dive into the ever-evolving world of code and creativity. Whether you're here to write your thoughts, learn something new, or simply see what others are building, you're in the right place. This is more than just a blog — it's a community built around curiosity, collaboration, and expression. So take a look around, get involved, and make yourself at home. This is your base. Let’s build something great together.</p>
 </div>
 
-<div class="latest-post mt-5" id="latest-post-container">
-  <h2 class="title"> Latest Posts </h2>
-  <div class="row g-3">
-  <div class="col-10 col-md-6 col-lg-4 mx-auto">
-    <div class="card h-100">
-      <div class="card-body">
-        <h5 class="card-title">Card title 1</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle 1</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+<!-- code modified from https://stackoverflow.com/questions/75190346/way-to-show-latest-4-blog-posts-on-my-page to suite my project and what i needed.-->
+<div class="blog-post-container">
+  <div class="row">
+    <h1 id="latest-blogs-title" style="text-align: center;">Latest Blogs</h1>
+    {% for latestpost in latest_posts %}
+      <div class="col-md-4" id="bloggrid1">
+        <hr>
+        <div class="blog-post">
+          <div class="blog-content">
+            <!-- If you have an image field, otherwise remove -->
+            <!-- <img class="blog-img" src="{{ latestpost.image.url }}" alt="Post image"/> -->
+            <h2 class="blog-title">{{ latestpost.title }}</h2>
+            <hr id="blog-hr" style="width: 90%" />
+            <article class="blog-article">
+              <p>{{ latestpost.body|truncatechars_html:265|safe }}</p>
+            </article>
+            <a href="{% url 'blog:post_detail' latestpost.pk %}" class="btn btn-secondary blog-button">Read More...</a>
+            <p class="blog-date">Posted on: {{ latestpost.publish }}</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <div class="col-10 col-md-6 col-lg-4 mx-auto">
-    <div class="card h-100">
-      <div class="card-body">
-        <h5 class="card-title">Card title 2</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle 2</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-10 col-md-6 col-lg-4 mx-auto">
-    <div class="card h-100">
-      <div class="card-body">
-        <h5 class="card-title">Card title 3</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle 3</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-    </div>
+    {% empty %}
+      <h3>No Blog Uploads</h3>
+    {% endfor %}
   </div>
 </div>
+
 
 {% endblock %}
