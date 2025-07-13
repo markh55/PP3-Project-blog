@@ -1,9 +1,10 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.2rem);
   line-height: 1.6;
   color: #222;
   background-color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Logo scaling */
@@ -16,7 +17,6 @@ body {
   padding-bottom: 2rem;
 }
 
-
 @media (max-width: 576px) {
   .logo {
     max-width: 120px;
@@ -26,12 +26,12 @@ body {
     padding: 0.5rem;
   }
 }
+
 /* New Post button on list.html */
 .posts-wrapper {
   width: 100%;
 }
 
-/* New Blog button */
 .newpost-btn {
   flex-shrink: 0;
 }
@@ -45,6 +45,7 @@ body {
     margin-left: auto;
   }
 }
+
 @media (max-width: 767.98px) {
   .header-row {
     flex-direction: column;
@@ -68,6 +69,7 @@ body {
   padding: 1rem;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .title {
@@ -75,18 +77,25 @@ body {
 }
 
 .card-wrapper {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 1rem;
-align-items: stretch;
-text-align: center;
-box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  align-items: stretch;
+  text-align: center;
+  box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.3);
 }
 
 .card-wrapper, .card {
   flex: 1 1 18rem;
   max-width: 18rem;
+}
+
+/* Hover effect on cards */
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transform: translateY(-5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Footer */
@@ -95,6 +104,7 @@ footer {
   font-size: 0.85rem;
   background-color: #f9f9f9;
   color: #555;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Layout: Comment Form Above Comments List */
@@ -112,7 +122,7 @@ footer {
   padding: 15px;
   background-color: #f9f9f9;
   position: relative;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Pending Comments Styling */
@@ -152,6 +162,15 @@ footer {
   padding: 3px 8px;
 }
 
+/* Responsive layout for edit/delete buttons */
+@media (max-width: 768px) {
+  .comments .mt-2 {
+    position: static;
+    margin-top: 10px;
+    text-align: right;
+  }
+}
+
 /* Comment Body */
 .comments #comment {
   margin-top: 10px;
@@ -164,6 +183,7 @@ footer {
   border-radius: 10px;
   padding: 20px;
   background-color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Button Style */
@@ -173,17 +193,79 @@ footer {
   padding: 10px 16px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-signup:hover {
+/* Hover and focus for button */
+.btn-signup:hover,
+.btn-signup:focus {
   background-color: #0056b3;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  outline: none;
 }
 
-/* Responsive Layout */
-@media (max-width: 768px) {
-  .comments .mt-2 {
-    position: static;
-    margin-top: 10px;
-    text-align: right;
-  }
+.btn-signup:focus {
+  outline: 3px solid #0056b3;
+  outline-offset: 2px;
 }
+
+/* Latest Post cards */
+
+.bloggrid {
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bloggrid:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.post-box {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.post-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.blog-post p {
+  max-height: 4.5em;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.blog-title {
+  margin-bottom: 1rem;
+}
+
+.blog-button {
+  align-self: flex-start;
+  margin-top: auto;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.blog-button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+

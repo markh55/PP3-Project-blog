@@ -20,7 +20,7 @@
             <div class="blog-content">
               <article class="blog-article">
                 <h2 class="blog-title">{{ latestpost.title }}</h2>
-                <p>{{ latestpost.body|truncatechars_html:265|safe }}</p>
+                <p>{{ latestpost.body|truncatechars_html:80|safe }}</p>
               </article>
               <a href="{% url 'blog:post_detail' latestpost.pk %}" class="btn btn-secondary blog-button">Read More...</a>
               <p class="blog-date">Posted on: {{ latestpost.publish }}</p>
