@@ -13,7 +13,11 @@ Devbase is to share content and give users the ability to fully interact with it
    * [Colour Scheme](#colour-scheme)
 * [Final Design](#final-design)
 * [Deployment](#deployment)
+    * [GitHub](#git-hub)
+    * [Heroku](#heroku)
 * [Testing](#testing)
+    * [lighthouse](#lighthouse)
+    * [CI Python Linter](#ci-python-linter)
 * [Feedback](#feedback)
 * [Tech Stack](#tech-stack)
 * [Resources](#resources)
@@ -99,6 +103,33 @@ Then when they deployment is compeleted it would go back to the top of the page 
 <img width="1668" alt="Screenshot 2025-07-03 at 18 02 07" src="https://github.com/user-attachments/assets/122f7c6f-9268-4157-86c8-067b7d8b85cc" />
 
 ## Testing
+
+### Lighthouse
+
+### Desktop
+
+<img width="806" height="568" alt="Lighthouse - Desktop" src="https://github.com/user-attachments/assets/41f30220-ddaf-47d9-ab13-93323a99f54f" />
+
+### Mobile
+
+<img width="806" height="568" alt="Lighthouse - Desktop" src="https://github.com/user-attachments/assets/de1cc564-52cc-4c1b-8ac9-9ab2caf9f02a" />
+
+### CI Python Linter
+
+### forms.py
+<img width="1381" height="798" alt="Screenshot 2025-07-12 at 23 45 13" src="https://github.com/user-attachments/assets/55134698-6ad6-40d8-8d2a-7ff923aad759" />
+
+### Admin.py
+
+<img width="1370" height="766" alt="Screenshot 2025-07-12 at 23 43 50" src="https://github.com/user-attachments/assets/634699cf-7a9e-438a-8a98-2413f75e9ef5" />
+
+### urls.py
+
+<img width="1500" height="819" alt="Screenshot 2025-07-12 at 23 41 26" src="https://github.com/user-attachments/assets/9066f6e9-78f4-4753-805a-5bfad76060f9" />
+
+### models.py
+
+<img width="1553" height="853" alt="Screenshot 2025-07-12 at 23 37 55" src="https://github.com/user-attachments/assets/df5104b4-d7a2-4c1a-ae9b-ffe09f4d4d30" />
 
 
 ## Feedback
