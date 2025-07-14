@@ -319,7 +319,11 @@ body.darkmode .btn-close {
   height: 40px;
   width: 40px;
   border-radius: 50%;
+}
 
+/* hamburger menu visible in dark mode */
+body.darkmode .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
 }
 
 /* Fix footer text in dark mode */

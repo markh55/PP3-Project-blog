@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 
 {% load static %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -77,9 +78,9 @@
                   >Login</a
                 >
               </li>
-              <li>
-                <!-- Darkmode toggle -->
-                <li class="ms-md-3 ms-auto">
+              {% endif %}
+              <!-- Darkmode toggle -->
+              <li class="ms-md-3 ms-auto">
                 <button id="darkmode-switch" class="btn btn-link p-0 ms-5">
                   <img
                     id="theme-icon"
@@ -90,7 +91,6 @@
                   />
                 </button>
               </li>
-              {% endif %}
             </ul>
           </div>
         </div>
