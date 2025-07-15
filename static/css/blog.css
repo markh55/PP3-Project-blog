@@ -159,7 +159,7 @@ footer {
 /* Edit/Delete Buttons */
 .comments .mt-2 {
   position: absolute;
-  top: 15px;
+  bottom: 15px;
   right: 15px;
 }
 
