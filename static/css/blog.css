@@ -269,6 +269,13 @@ footer {
 }
 
 /* Dark Mode Styles */
+#darkmode-switch {
+  background-color: grey;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
 body.darkmode {
   background-color: #121212;
   color: #e0e0e0;
