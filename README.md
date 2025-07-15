@@ -144,7 +144,7 @@ These automated checks back up the manual testing and functional checks, so I’
 
 
 ## Feedback
-The only feed back i got was to do with the darkmode icon while on mobile screens it was diplaying outside of the hamburger menu causing the alignment to be out.
+The only feed back i got was to do with the darkmode icon while on mobile screens it was displaying outside of the hamburger menu causing the alignment to be out.
 
 ![IMG_8472](https://github.com/user-attachments/assets/00677a49-3e75-499b-807a-07ff3ff4cc4c)
 
