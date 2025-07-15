@@ -56,7 +56,7 @@ With the design the aim was to make it clean and simple for you user to be able 
 ![Blog Page](https://github.com/user-attachments/assets/84e90daf-46d2-49ff-9d10-5328887007be)
 
 ### Logo
-i came up with the devbase logo when thinking of things to call my blog instead of the classic "My Blog" so my thought process was;
+I came up with the devbase logo when thinking of things to call my blog instead of the classic "My Blog" so my thought process was;
 
 Dev - This is just developer but shortened.
 
@@ -66,6 +66,8 @@ the logo itself is something unique and relevent, the logo is made up of a < sym
 
 ![11F745C7-7B4A-4E7E-81A7-753B950155AE_1_102_o](https://github.com/user-attachments/assets/03ad06b2-1292-4c75-8cff-30fb8bb22862)
 
+* Darkmode
+<img width="1024" height="1024" alt="dark_mode_logo" src="https://github.com/user-attachments/assets/56a60d4a-326a-4d63-b6b4-dbb1d9417b25" />
 
 
 ## Final Design
@@ -101,6 +103,16 @@ Then when they deployment is compeleted it would go back to the top of the page 
 ## Testing
 
 ### Lighthouse
+
+To ensure quality and performance of my project, I  preformed  multiple testing:
+
+Lighthouse: I ran Lighthouse tests on both desktop and mobile to evaluate the site performance, accessibility, best practices.
+
+Python Code Linting: I ran a CI linter on important Python files like forms.py, admin.py, urls.py, and models.py to catch style and syntax problems. The screenshots show the code follows PEP8 and stays clean, which makes it easier to read and less likely to have bugs.
+
+These automated checks back up the manual testing and functional checks, so I’m confident the code is solid, easy to maintain, and works well for users.
+
+
 
 ### Desktop
 
@@ -139,7 +151,7 @@ This was fixed but replacing the line of code for the darkmode item within the n
 
 ## Tech Stack
 *	Django 5.0.14
-*	HTML (Django templates)
+*	HTML
 *	CSS / Bootstrap 5
 *	PostgreSQL
 *	Heroku (deployment)
@@ -156,6 +168,8 @@ This was fixed but replacing the line of code for the darkmode item within the n
 * Djnago 5 By Example by Antonio Mele
 
 * Documentation for Django - https://docs.djangoproject.com/en/5.2/
+  
+* Stack Overflow
 
     
 ## Credits / Tutorials
