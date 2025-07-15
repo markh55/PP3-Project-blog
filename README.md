@@ -10,7 +10,6 @@ Devbase is to share content and give users the ability to fully interact with it
    * [User Stories](#user-stories)
    * [Wireframes](#wireframes)
    * [Logo](#logo)
-   * [Colour Scheme](#colour-scheme)
 * [Final Design](#final-design)
 * [Deployment](#deployment)
     * [GitHub](#git-hub)
@@ -67,9 +66,6 @@ the logo itself is something unique and relevent, the logo is made up of a < sym
 
 ![11F745C7-7B4A-4E7E-81A7-753B950155AE_1_102_o](https://github.com/user-attachments/assets/03ad06b2-1292-4c75-8cff-30fb8bb22862)
 
-
-
-### Colour Scheme
 
 
 ## Final Design
@@ -133,6 +129,13 @@ Then when they deployment is compeleted it would go back to the top of the page 
 
 
 ## Feedback
+The only feed back i got was to do with the darkmode icon while on mobile screens it was diplaying outside of the hamburger menu causing the alignment to be out.
+
+![IMG_8472](https://github.com/user-attachments/assets/00677a49-3e75-499b-807a-07ff3ff4cc4c)
+
+This was fixed but replacing the line of code for the darkmode item within the nav items section, by doing this the icon is hidden within the hamburger menu and the hamburger menu icon is back in the original position of the top right hand side.
+![IMG_8486](https://github.com/user-attachments/assets/5e8963fb-d367-443e-b1af-516e133604c5)
+
 
 ## Tech Stack
 *	Django 5.0.14
