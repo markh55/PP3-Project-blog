@@ -5,7 +5,6 @@
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -30,7 +29,12 @@
             <img
               src="{% static 'images/devbase-logo.png' %}"
               alt="Devbase Logo"
-              class="logo"
+              class="logo logo-light"
+            />
+            <img
+              src="{% static 'images/dark_mode_logo.PNG' %}"
+              alt="Devbase Dark Logo"
+              class="logo logo-dark"
             />
           </a>
 
