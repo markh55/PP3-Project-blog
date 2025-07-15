@@ -13,6 +13,7 @@ Project link <a href="https://blog-pp3-22938c709acc.herokuapp.com/" target="_bla
    * [User Stories](#user-stories)
    * [Wireframes](#wireframes)
    * [Logo](#logo)
+   * [Colour Theme](#colour-theme)
 * [Final Design](#final-design)
 * [Deployment](#deployment)
     * [GitHub](#git-hub)
@@ -71,6 +72,19 @@ the logo itself is something unique and relevent, the logo is made up of a < sym
 
 * Darkmode
 <img width="1024" height="1024" alt="dark_mode_logo" src="https://github.com/user-attachments/assets/56a60d4a-326a-4d63-b6b4-dbb1d9417b25" />
+
+### Colour Theme
+
+When planning what colour pallet i wanted to go with i needed to decide early on if i wanted the user to have the ability to change themes, this played a big part in the colours i picked as i wanted to keep it clean and minimal;
+
+<img width="1600" height="1200" alt="Devbase" src="https://github.com/user-attachments/assets/f65e0d68-110e-49d5-add6-8fb5016a923b" />
+
+*	#007bff – Light Mode Primary (Button Blue)
+*	#222 – Light Mode Text (Primary Text)
+*	#fff – Light Mode Background
+*	#121212 – Dark Mode Background
+*	#e0e0e0 – Dark Mode Text
+
 
 
 ## Final Design
