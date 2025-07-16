@@ -12,6 +12,7 @@ Project link <a href="https://blog-pp3-22938c709acc.herokuapp.com/" target="_bla
 * [Planning](#planning)
    * [User Stories](#user-stories)
    * [Wireframes](#wireframes)
+   * [Entity Relationship Diagram](#entity-relationship-diagram)
    * [Logo](#logo)
    * [Colour Theme](#colour-theme)
 * [Final Design](#final-design)
@@ -58,6 +59,32 @@ With the design the aim was to make it clean and simple for you user to be able 
 
 ### Blog Page - 
 ![Blog Page](https://github.com/user-attachments/assets/84e90daf-46d2-49ff-9d10-5328887007be)
+
+### Entity Relationship Diagram
+
+Following on from designing the wireframes, I needed to think about a model structure to be used for the project. I opted for a simple setup based around two core models: Post and Comment.
+
+The Post model is composed of the following:
+
+* ID
+* Title
+* Slug
+* Author
+* Body
+* Publish
+
+The Comment model is composed of the following:
+
+* ID
+* Post
+* Author
+* Body
+* Approved
+* Created_on
+
+This structure allows each post to have multiple comments, while keeping the relationships clear and easy to manage.
+
+<img width="400" height="600" alt="A4475DAA-AACD-4342-BF8C-858C7BD76209 2" src="https://github.com/user-attachments/assets/fcff6d67-2a52-40e2-ab19-d3eb3ead1192" />
 
 ### Logo
 I came up with the devbase logo when thinking of things to call my blog instead of the classic "My Blog" so my thought process was;
