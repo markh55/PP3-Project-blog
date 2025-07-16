@@ -233,3 +233,5 @@ I used this tutorial to help implement the functionality for users to add blog p
 [Show latest blog posts](https://stackoverflow.com/questions/75190346/way-to-show-latest-4-blog-posts-on-my-page)
 
    Question by David Henson, answered by Mas Zero. I used this as a reference for structuring the query and template logic to display the most recent posts. The    code was adapted to suit my models and template structure.
+
+* Blog Posts are from ChatGPT
