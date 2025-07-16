@@ -32,15 +32,15 @@ Project link <a href="https://blog-pp3-22938c709acc.herokuapp.com/" target="_bla
 
 ### User Stories
 
-* As a user, I want to browse and read blog posts created by others so I can engage with their content.
+For the design of the blog, I want it to be clean, user-friendly, and easy to navigate for everyone.
 
-* As a logged-in user, I want to edit my own blog posts so I can update or improve my content.
+I will achieve this by doing the following:
 
-* As a logged-in user, I want to delete my blog posts so I can remove content I no longer want to share.
-
-* As a user, I want a simple and responsive layout with clear navigation so I can easily find what I’m looking for.
-
-* As a developer, I want to ensure blog posts are stored in a relational database linked to user accounts so that data is organized and secure.
+* Listing blog posts clearly
+* Allowing logged-in users to edit or delete only their own posts or comments
+* Enabling visitors to browse and read posts without needing to log in
+* Creating a responsive layout that works well on all screen sizes
+* Storing all blog posts in a relational database linked to user accounts for secure management
 
 
 ### Wireframes
