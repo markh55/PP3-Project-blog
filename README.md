@@ -9,23 +9,37 @@ Project link <a href="https://blog-pp3-22938c709acc.herokuapp.com/" target="_bla
 
 ### Table of Content
 
-* [Planning](#planning)
-   * [User Stories](#user-stories)
-   * [Wireframes](#wireframes)
-   * [Entity Relationship Diagram](#entity-relationship-diagram)
-   * [Logo](#logo)
-   * [Colour Theme](#colour-theme)
-* [Final Design](#final-design)
-* [Deployment](#deployment)
-    * [GitHub](#git-hub)
-    * [Heroku](#heroku)
-* [Testing](#testing)
-    * [lighthouse](#lighthouse)
-    * [CI Python Linter](#ci-python-linter)
-* [Feedback](#feedback)
-* [Tech Stack](#tech-stack)
-* [Resources](#resources)
-* [Credits / Tutorials](#credits--tutorials)
+- [PP3-Project-blog](#pp3-project-blog)
+  - [Devbase](#devbase)
+    - [Table of Content](#table-of-content)
+  - [Planning](#planning)
+    - [User Stories](#user-stories)
+    - [Wireframes](#wireframes)
+    - [Welcome Page -](#welcome-page--)
+    - [Sign up Page -](#sign-up-page--)
+    - [Blog Homepage -](#blog-homepage--)
+    - [Blog Page -](#blog-page--)
+    - [Entity Relationship Diagram](#entity-relationship-diagram)
+    - [Logo](#logo)
+    - [Colour Theme](#colour-theme)
+  - [Final Design](#final-design)
+  - [Deployment](#deployment)
+    - [Git Hub](#git-hub)
+    - [Heroku](#heroku)
+  - [Testing](#testing)
+    - [Lighthouse](#lighthouse)
+    - [Desktop](#desktop)
+    - [Mobile](#mobile)
+    - [CI Python Linter](#ci-python-linter)
+    - [forms.py](#formspy)
+    - [Admin.py](#adminpy)
+    - [urls.py](#urlspy)
+    - [models.py](#modelspy)
+  - [Feedback](#feedback)
+  - [Tech Stack](#tech-stack)
+  - [Resources](#resources)
+  - [Credits / Tutorials](#credits--tutorials)
+    - [Source used](#source-used)
 
 
 ## Planning
@@ -154,9 +168,7 @@ Lighthouse: I ran Lighthouse tests on both desktop and mobile to evaluate the si
 
 Python Code Linting: I ran a CI linter on important Python files like forms.py, admin.py, urls.py, and models.py to catch style and syntax problems. The screenshots show the code follows PEP8 and stays clean, which makes it easier to read and less likely to have bugs.
 
-These automated checks back up the manual testing and functional checks, so I’m confident the code is solid, easy to maintain, and works well for users.
-
-
+These checks back up the manual completed below;
 
 ### Desktop
 
