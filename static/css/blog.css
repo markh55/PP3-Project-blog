@@ -362,6 +362,15 @@ body.darkmode .logo-dark {
   display: inline;
 }
 
+body.darkmode .btn {
+  color: #fff;
+  text-decoration: underline !important;
+}
+
+body.darkmode .btn:hover {
+  color: #70a7ee;
+}
+
 /* Optional: Respect system preference */
 @media (prefers-color-scheme: dark) {
   body:not(.darkmode):not(.lightmode) {
