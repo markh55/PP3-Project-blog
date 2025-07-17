@@ -9,13 +9,10 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from .forms import CommentForm
 
 
-# Create your views here.
-
 def post_list(request):
     posts = Post.published.all()
     return render(request, 'blog/post/list.html', {'posts': posts})
 
-# CreateView - User to be able to post own blog
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'body']
@@ -26,12 +23,10 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.status = 'PB'
         return super().form_valid(form)
 
-# user to update their blog post
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'body']
     template_name = 'blog/post/post_form.html'
-
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -40,11 +35,8 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
+        return self.request.user == post.author
 
-# DeleteView - user to be able to delete their blog
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'blog/post/post_confirm_delete.html'
@@ -52,37 +44,38 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
+        return self.request.user == post.author
 
 
-
-
-def post_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk, status=Post.Status.PUBLISHED)
-    comments = post.comments.all().order_by("-created_on")
-    comment_count = post.comments.filter(approved=True).count()
+def post_detail(request, year, month, day, post):
+    post_obj = get_object_or_404(
+        Post,
+        slug=post,
+        publish__year=year,
+        publish__month=month,
+        publish__day=day,
+        status=Post.Status.PUBLISHED,
+    )
 
     if request.method == "POST" and request.user.is_authenticated:
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
-            comment.post = post
+            comment.post = post_obj
             comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
-            )
+            messages.success(request, 'Comment submitted and awaiting approval')
     else:
         comment_form = CommentForm()
+
+    comments = post_obj.comments.filter(approved=True)
+    comment_count = comments.count()
 
     return render(
         request,
         'blog/post/detail.html',
         {
-            'post': post,
+            'post': post_obj,
             'comments': comments,
             'comment_count': comment_count,
             "comment_form": comment_form,
@@ -98,7 +91,12 @@ def edit_comment(request, comment_id):
         if form.is_valid():
             form.save()
             messages.success(request, "Comment updated successfully.")
-            return HttpResponseRedirect(reverse('blog:post_detail', kwargs={'pk': comment.post.id}))
+            return HttpResponseRedirect(reverse('blog:post_detail', kwargs={
+                'year': comment.post.publish.year,
+                'month': comment.post.publish.month,
+                'day': comment.post.publish.day,
+                'post': comment.post.slug,
+            }))
     else:
         form = CommentForm(instance=comment)
 
@@ -110,15 +108,19 @@ def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, author=request.user)
 
     if request.method == "POST":
-        post_id = comment.post.id
+        post = comment.post
         comment.delete()
         messages.success(request, "Comment deleted successfully.")
-        return HttpResponseRedirect(reverse('blog:post_detail', kwargs={'pk': post_id}))
+        return HttpResponseRedirect(reverse('blog:post_detail', kwargs={
+            'year': post.publish.year,
+            'month': post.publish.month,
+            'day': post.publish.day,
+            'post': post.slug,
+        }))
 
     return render(request, 'blog/delete_comment.html', {'comment': comment})
 
+
 def home_view(request):
-    latest_posts = Post.published.all()[:3] # code modified form - https://docs.djangoproject.com/en/5.2/ref/models/querysets/#limiting-querysets. to show 3 latest posts on home.html
+    latest_posts = Post.published.all()[:3]
     return render(request, 'blog/home.html', {'latest_posts': latest_posts})
-
-
