@@ -39,6 +39,10 @@ body {
   flex-shrink: 0;
 }
 
+#post-body-container {
+    white-space: pre-wrap;
+}
+
 @media(min-width: 768px) {
   .posts-wrapper {
     justify-content: flex-end;
