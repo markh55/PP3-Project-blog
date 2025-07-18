@@ -159,13 +159,15 @@ Then when they deployment is compeleted it would go back to the top of the page 
 
 ## Testing
 
-To ensure quality and performance of my project, I  preformed  multiple testing:
+To ensure quality and performance of my project, I performed multiple tests:
+
+Manual Testing - My manual testing is made up of 4 main components Authentication, Blog features, Commenting and UI/UX to test that each component was fully working as it should to deliver the best experience to the user possible
 
 Lighthouse: I ran Lighthouse tests on both desktop and mobile to evaluate the site performance, accessibility, best practices.
 
 Python Code Linting: I ran a CI linter on important Python files like forms.py, admin.py, urls.py, and models.py to catch style and syntax problems. The screenshots show the code follows PEP8 and stays clean, which makes it easier to read and less likely to have bugs.
 
-These checks back up the manual testing completed below;
+These checks are backed up below;
 
 ### Manual Testing 
 
