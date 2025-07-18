@@ -130,6 +130,9 @@ When planning what colour pallet i wanted to go with i needed to decide early on
 
 ## Final Design
 
+<img width="1420" height="647" alt="screenshot_2025-07-17_at_19 56 05" src="https://github.com/user-attachments/assets/074fe390-40f6-48c6-befc-fd3a3afe504c" />
+
+
 ## Deployment
 
 ### Git Hub
