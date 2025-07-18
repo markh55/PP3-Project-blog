@@ -26,6 +26,7 @@ Devbase is to share content and give users the ability to fully interact with it
     - [Git Hub](#git-hub)
     - [Heroku](#heroku)
   - [Testing](#testing)
+    - [Manual Testing](#manual-testing) 
     - [Lighthouse](#lighthouse)
     - [Desktop](#desktop)
     - [Mobile](#mobile)
@@ -155,8 +156,6 @@ Then when they deployment is compeleted it would go back to the top of the page 
 
 ## Testing
 
-### Lighthouse
-
 To ensure quality and performance of my project, I  preformed  multiple testing:
 
 Lighthouse: I ran Lighthouse tests on both desktop and mobile to evaluate the site performance, accessibility, best practices.
@@ -164,6 +163,43 @@ Lighthouse: I ran Lighthouse tests on both desktop and mobile to evaluate the si
 Python Code Linting: I ran a CI linter on important Python files like forms.py, admin.py, urls.py, and models.py to catch style and syntax problems. The screenshots show the code follows PEP8 and stays clean, which makes it easier to read and less likely to have bugs.
 
 These checks back up the manual completed below;
+
+### Manual Testing 
+
+#### 🧑‍💻 Authentication
+
+| Feature       | Test Performed                                                                            | Outcome    |
+|---------------|--------------------------------------------------------------------------------------------|------------|
+| Login page    | Tested all components of page was working as they should by logging in as user            | Completed ✅ |
+| Sign-up page  | Completed the sign-up process to ensure features working as intended                      | Completed ✅ |
+| Log-out page  | Logged out of account to ensure working as should                                          | Completed ✅ |
+
+#### 📝 Blog Features
+
+| Feature      | Test Performed                                                                 | Outcome    |
+|--------------|----------------------------------------------------------------------------------|------------|
+| Add Blog     | Added a blog post via frontend                                                  | Completed ✅ |
+| Edit Blog    | Updated my blog to ensure this was working as should                            | Completed ✅ |
+| Delete Blog  | Deleted my blog to ensure it would be removed from the site                     | Completed ✅ |
+| View only if not logged in | Viewed a post while not being logged in to ensure it was view only and if you wanted to leave a comment you need to have an account | Completed ✅ |
+
+#### 💬 Commenting
+
+| Feature        | Test Performed                     | Outcome    |
+|----------------|------------------------------------|------------|
+| Add a comment  | Added a comment to blog            | Completed ✅ |
+| Edit Comment   | Updated my comment                 | Completed ✅ |
+| Delete Comment | Deleted my comment from blog       | Completed ✅ |
+
+#### 🌙 UI / UX
+
+| Feature                 | Test Performed                                                                 | Outcome    |
+|--------------------------|-------------------------------------------------------------------------------|------------|
+| Light / Dark mode Switch | I tested that the different modes worked as should and ensured all text was readable in both modes | Completed ✅ |
+| Responsive Design        | Tested my blog across multiple devices and used google chrome inspect view to view my blog in responsive mode | Completed ✅ |
+
+
+### Lighthouse
 
 ### Desktop
 
