@@ -165,7 +165,7 @@ Lighthouse: I ran Lighthouse tests on both desktop and mobile to evaluate the si
 
 Python Code Linting: I ran a CI linter on important Python files like forms.py, admin.py, urls.py, and models.py to catch style and syntax problems. The screenshots show the code follows PEP8 and stays clean, which makes it easier to read and less likely to have bugs.
 
-These checks back up the manual completed below;
+These checks back up the manual testing completed below;
 
 ### Manual Testing 
 
@@ -245,6 +245,7 @@ This was fixed but replacing the line of code for the darkmode item within the n
 
 - HTML
 - CSS / Bootstrap 5
+- JavaScript
 - PostgreSQL
 - Heroku (deployment)
 
