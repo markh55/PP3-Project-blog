@@ -46,7 +46,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'blog/post/post_confirm_delete.html'
-    success_url = reverse_lazy('blog:post_list')  # Fix here: redirect to post list after deletion
+    success_url = reverse_lazy('blog:post_list')
 
     def test_func(self):
         post = self.get_object()
@@ -123,7 +123,16 @@ def edit_comment(request, comment_id):
     else:
         form = CommentForm(instance=comment)
 
-    return render(request, 'blog/edit_comment.html', {'form': form, 'comment': comment})
+    return render(request, 'blog/edit_comment.html', {
+        'form': form,
+        'comment': comment,
+        'post_url': reverse('blog:post_detail', kwargs={
+            'year': post.publish.year,
+            'month': post.publish.month,
+            'day': post.publish.day,
+            'post': post.slug,
+        }),
+    })
 
 
 @login_required
@@ -144,7 +153,15 @@ def delete_comment(request, comment_id):
             'post': post.slug,
         }))
 
-    return render(request, 'blog/delete_comment.html', {'comment': comment})
+    return render(request, 'blog/delete_comment.html', {
+        'comment': comment,
+        'post_url': reverse('blog:post_detail', kwargs={
+            'year': post.publish.year,
+            'month': post.publish.month,
+            'day': post.publish.day,
+            'post': post.slug,
+        }),
+    })
 
 
 def home_view(request):

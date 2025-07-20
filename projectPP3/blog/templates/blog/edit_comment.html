@@ -4,16 +4,13 @@
 {% block title %}Edit Comment{% endblock %}
 
 {% block content %}
-  <h2>Edit Your Comment</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-success">Save Changes</button>
-    <a href="{% url 'blog:post_detail' 
-      year=comment.post.publish.year 
-      month=comment.post.publish.month 
-      day=comment.post.publish.day 
-      post=comment.post.slug 
-    %}" class="btn btn-secondary">Cancel</a>
-  </form>
+  <div class="container mt-4">
+    <h2>Edit Your Comment</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-success">Save Changes</button>
+      <a href="{{ post_url }}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
 {% endblock %}
