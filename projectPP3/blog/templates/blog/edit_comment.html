@@ -9,6 +9,11 @@
     {% csrf_token %}
     {{ form|crispy }}
     <button type="submit" class="btn btn-success">Save Changes</button>
-    <a href="{% url 'blog:post_detail' comment.post.id %}" class="btn btn-secondary">Cancel</a>
+    <a href="{% url 'blog:post_detail' 
+      year=comment.post.publish.year 
+      month=comment.post.publish.month 
+      day=comment.post.publish.day 
+      post=comment.post.slug 
+    %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}

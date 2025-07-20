@@ -11,6 +11,11 @@
   <form method="post">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Yes, Delete</button>
-    <a href="{% url 'blog:post_detail' comment.post.id %}" class="btn btn-secondary">Cancel</a>
+    <a href="{% url 'blog:post_detail' 
+      year=comment.post.publish.year 
+      month=comment.post.publish.month 
+      day=comment.post.publish.day 
+      post=comment.post.slug 
+    %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}

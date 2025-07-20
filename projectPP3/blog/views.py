@@ -1,17 +1,21 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse, reverse_lazy
-from .models import Post, Comment
+from django.db.models import Q
 from django.views.generic import CreateView, UpdateView, DeleteView
+from django.utils import timezone
+
+from .models import Post, Comment
 from .forms import CommentForm
 
 
 def post_list(request):
     posts = Post.published.all()
     return render(request, 'blog/post/list.html', {'posts': posts})
+
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -22,6 +26,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         form.instance.status = 'PB'
         return super().form_valid(form)
+
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
@@ -37,10 +42,11 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         post = self.get_object()
         return self.request.user == post.author
 
+
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'blog/post/post_confirm_delete.html'
-    success_url = reverse_lazy('blog:post_list')
+    success_url = reverse_lazy('blog:post_list')  # Fix here: redirect to post list after deletion
 
     def test_func(self):
         post = self.get_object()
@@ -65,11 +71,23 @@ def post_detail(request, year, month, day, post):
             comment.post = post_obj
             comment.save()
             messages.success(request, 'Comment submitted and awaiting approval')
+            return HttpResponseRedirect(reverse('blog:post_detail', kwargs={
+                'year': post_obj.publish.year,
+                'month': post_obj.publish.month,
+                'day': post_obj.publish.day,
+                'post': post_obj.slug,
+            }))
     else:
         comment_form = CommentForm()
 
-    comments = post_obj.comments.filter(approved=True)
-    comment_count = comments.count()
+    if request.user.is_authenticated:
+        comments = post_obj.comments.filter(
+            Q(approved=True) | Q(author=request.user)
+        ).distinct().order_by('created_on')
+    else:
+        comments = post_obj.comments.filter(approved=True).order_by('created_on')
+
+    comment_count = post_obj.comments.filter(approved=True).count()
 
     return render(
         request,
@@ -78,24 +96,29 @@ def post_detail(request, year, month, day, post):
             'post': post_obj,
             'comments': comments,
             'comment_count': comment_count,
-            "comment_form": comment_form,
+            'comment_form': comment_form,
         }
     )
+
 
 @login_required
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+    post = comment.post
 
     if request.method == "POST":
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
             messages.success(request, "Comment updated successfully.")
+
+            publish = post.publish or post.created or timezone.now()
+
             return HttpResponseRedirect(reverse('blog:post_detail', kwargs={
-                'year': comment.post.publish.year,
-                'month': comment.post.publish.month,
-                'day': comment.post.publish.day,
-                'post': comment.post.slug,
+                'year': publish.year,
+                'month': publish.month,
+                'day': publish.day,
+                'post': post.slug,
             }))
     else:
         form = CommentForm(instance=comment)
@@ -106,15 +129,18 @@ def edit_comment(request, comment_id):
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+    post = comment.post
 
     if request.method == "POST":
-        post = comment.post
         comment.delete()
         messages.success(request, "Comment deleted successfully.")
+
+        publish = post.publish or post.created or timezone.now()
+
         return HttpResponseRedirect(reverse('blog:post_detail', kwargs={
-            'year': post.publish.year,
-            'month': post.publish.month,
-            'day': post.publish.day,
+            'year': publish.year,
+            'month': publish.month,
+            'day': publish.day,
             'post': post.slug,
         }))
 
