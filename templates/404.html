@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="{% static 'css/404.css' %}" />
+  </head>
+  <body>
+    <div class="error-page">
+      <h1>Page Not Found!</h1>
+      <h2>Sorry!</h2>
+      <p>
+        <strong
+          >Uh oh, the page you're looking for dosen't seem to be here. Please go
+          back to the previous page.</strong
+        >
+      </p>
+      <p><a href="{% url 'blog:home' %}" class="home-btn">Back To Devbase</a></p>
+    </div>
+  </body>
+</html>

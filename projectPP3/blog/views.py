@@ -167,3 +167,6 @@ def delete_comment(request, comment_id):
 def home_view(request):
     latest_posts = Post.published.all()[:3]
     return render(request, 'blog/home.html', {'latest_posts': latest_posts})
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
