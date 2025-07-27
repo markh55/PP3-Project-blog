@@ -10,13 +10,14 @@ from django.utils import timezone
 
 from .models import Post, Comment
 from .forms import CommentForm
+from .forms import EmailPostForm
 
-
+# View functions for the blog application
 def post_list(request):
     posts = Post.published.all()
     return render(request, 'blog/post/list.html', {'posts': posts})
 
-
+# Post creation and management views
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'body']
@@ -27,7 +28,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.status = 'PB'
         return super().form_valid(form)
 
-
+# This view allows users to update their posts
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'body']
@@ -42,7 +43,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         post = self.get_object()
         return self.request.user == post.author
 
-
+# This view allows users to delete their posts
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'blog/post/post_confirm_delete.html'
@@ -52,7 +53,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         post = self.get_object()
         return self.request.user == post.author
 
-
+# Post detail view with comments
 def post_detail(request, year, month, day, post):
     post_obj = get_object_or_404(
         Post,
@@ -100,7 +101,7 @@ def post_detail(request, year, month, day, post):
         }
     )
 
-
+# Comment management views
 @login_required
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, author=request.user)
@@ -134,7 +135,7 @@ def edit_comment(request, comment_id):
         }),
     })
 
-
+# Delete comment view
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, author=request.user)
@@ -162,6 +163,29 @@ def delete_comment(request, comment_id):
             'post': post.slug,
         }),
     })
+
+# Email sharing functionality
+def post_share(request, post_id):
+    post = get_object_or_404(
+        Post,
+        id=post_id,
+        status=Post.Status.PUBLISHED
+    )
+    if request.method == 'POST':
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+    else:
+        form = EmailPostForm()
+    return render(
+        request,
+        'blog/post/share.html',
+        {
+            'post': post,
+            'form': form,
+        }
+    )
+
 
 
 def home_view(request):
