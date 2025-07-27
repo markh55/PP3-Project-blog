@@ -272,7 +272,7 @@ footer {
   color: white;
 }
 
-/* share post */
+/* Share Post */
 .share-post-form {
   max-width: 420px;
   margin: 20px auto;
@@ -285,13 +285,6 @@ footer {
 
 .share-post-form p {
   margin-bottom: 1rem;
-}
-
-.share-post-form p:last-of-type {
-  border: none;
-  padding: 0;
-  margin: 0;
-  box-shadow: none;
 }
 
 .share-post-form label {
@@ -339,13 +332,12 @@ footer {
   background-color: #0056b3;
 }
 
-/* Share Post Button */
+/* Share button wrapper */
 .mt-4.share-button-wrapper {
   padding: 0;
   border: none;
   box-shadow: none;
 }
-
 
 .container .mt-4.share-button-wrapper {
   padding: 0 !important;
@@ -353,7 +345,7 @@ footer {
   box-shadow: none !important;
 }
 
-/* Button link style */
+/* Share button link */
 .mt-4.share-button-wrapper a.btn-outline-info {
   border: 1px solid #0056b3;
   padding: 0.5rem 1rem;
@@ -436,6 +428,27 @@ body.darkmode .navbar-toggler-icon {
   filter: brightness(0) invert(1);
 }
 
+/* Form inputs in dark mode */
+body.darkmode input[type="text"],
+body.darkmode input[type="email"],
+body.darkmode textarea {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  border-color: #444;
+}
+
+body.darkmode input[type="text"]::placeholder,
+body.darkmode input[type="email"]::placeholder,
+body.darkmode textarea::placeholder {
+  color: #666666;
+}
+
+/* Labels in dark mode */
+body.darkmode label,
+body.darkmode .share-post-form label {
+  color: #ffffff;
+}
+
 /* Component backgrounds in dark mode */
 body.darkmode .card,
 body.darkmode .post-box,
@@ -444,6 +457,15 @@ body.darkmode .comment-form {
   background-color: #1e1e1e;
   color: #e0e0e0;
   border-color: #333;
+}
+
+body.darkmode label,
+body.darkmode .share-post-form label,
+body.darkmode label[for],
+body.darkmode .form-label,
+body.darkmode .share-post-form label.form-label {
+  color: #fff !important;
+  font-weight: 600 !important;
 }
 
 /* Dark/light logos */
