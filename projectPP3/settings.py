@@ -75,14 +75,12 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 ROOT_URLCONF = 'projectPP3.urls'
 
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'projectPP3', 'blog', 'templates')
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'projectPP3', 'blog', 'templates', 'blog'),
+            os.path.join(BASE_DIR, 'projectPP3', 'blog', 'templates'),  # Removed extra 'blog' here
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -101,13 +99,6 @@ WSGI_APPLICATION = 'projectPP3.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-# DATABASES = {
-    #'default': {
-#     'ENGINE': 'django.db.backends.sqlite3',
-#      'NAME': BASE_DIR / 'db.sqlite3',
-#   }
-#}
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -178,10 +169,17 @@ if not DEBUG:
     CSRF_COOKIE_SECURE = True
     X_FRAME_OPTIONS = 'DENY'
 
+
 # Email server settings
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

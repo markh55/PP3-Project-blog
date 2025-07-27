@@ -27,6 +27,12 @@
   {{ post.body | linebreaks }}
 </div>
 
+<div class="mt-4">
+  <a href="{% url "blog:post_share" post.id %}" class="btn btn-outline-info">
+    <i class="fas fa-share-alt"></i> Share this post
+  </a>
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const uls = document.querySelectorAll('#post-body-container ul');
@@ -42,7 +48,7 @@
   });
 </script>
 
-<div class="row">
+<div class="row mt-5">
   <div class="col-12">
     <strong class="text-secondary">
       <i class="far fa-comments"></i> {{ comment_count }}

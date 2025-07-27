@@ -241,7 +241,7 @@ footer {
 
 .post-box:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .blog-post p {
@@ -270,6 +270,73 @@ footer {
 .blog-button:hover {
   background-color: #0056b3;
   color: white;
+}
+
+/* share post */
+.share-post-form {
+  max-width: 420px;
+  margin: 20px auto;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.share-post-form p {
+  margin-bottom: 1rem;
+}
+
+.share-post-form p:last-of-type {
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.share-post-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.share-post-form input[type="text"],
+.share-post-form input[type="email"],
+.share-post-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.share-post-form input[type="text"]:focus,
+.share-post-form input[type="email"]:focus,
+.share-post-form textarea:focus {
+  border-color: #2a7ae2;
+  outline: none;
+  box-shadow: 0 0 6px #2a7ae2;
+}
+
+.share-post-form input[type="submit"] {
+  background-color: #2a7ae2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.share-post-form input[type="submit"]:hover {
+  background-color: #1a5bb8;
 }
 
 /* Dark Mode Styles */
