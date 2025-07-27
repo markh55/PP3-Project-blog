@@ -27,8 +27,8 @@
   {{ post.body | linebreaks }}
 </div>
 
-<div class="mt-4">
-  <a href="{% url "blog:post_share" post.id %}" class="btn btn-outline-info">
+<div class="share-button-wrapper">
+  <a href="{% url "blog:post_share" post.id %}" class="btn btn-primary">
     <i class="fas fa-share-alt"></i> Share this post
   </a>
 </div>
@@ -59,7 +59,6 @@
   </div>
 </div>
 
-<!-- Creating new comment -->
 <div class="row" id="comment-form">
   <div class="col-md-12 card mb-4 mt-3">
     <div class="card-body">
@@ -82,7 +81,6 @@
   </div>
 </div>
 
-<!-- Display comments -->
 <div class="row" id="comment-list">
   <div class="col-md-12 card mb-4 mt-3">
     <div class="card-body">
@@ -95,11 +93,9 @@
             <span class="font-weight-normal">{{ comment.created_on|date:"F j, Y, g:i a" }}</span> wrote:
           </p>
           <div id="comment{{ comment.id }}">{{ comment.body | linebreaks }}</div>
-
           {% if not comment.approved and comment.author == user %}
           <p class="approval">This comment is awaiting approval</p>
           {% endif %}
-
           {% if comment.author == user %}
           <div class="mt-2">
             <a href="{% url 'blog:edit_comment' comment.id %}" class="btn btn-sm btn-primary">Edit</a>

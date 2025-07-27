@@ -11,7 +11,7 @@
   <form method="post" class="share-post-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Send Email">
+    <input type="submit" value="Send" class="btn btn-primary">
   </form>
 {% endif %}
 {% endblock %}
