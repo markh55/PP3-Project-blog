@@ -332,35 +332,6 @@ footer {
   background-color: #0056b3;
 }
 
-/* Share button wrapper */
-.mt-4.share-button-wrapper {
-  padding: 0;
-  border: none;
-  box-shadow: none;
-}
-
-.container .mt-4.share-button-wrapper {
-  padding: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Share button link */
-.mt-4.share-button-wrapper a.btn-outline-info {
-  border: 1px solid #0056b3;
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  box-shadow: none;
-  background-color: transparent;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.mt-4.share-button-wrapper a.btn-outline-info:hover {
-  background-color: #0056b3;
-  color: #fff;
-  text-decoration: none;
-}
-
 /* Dark Mode Styles */
 #darkmode-switch {
   background-color: grey;
