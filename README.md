@@ -176,6 +176,12 @@ I have also set this feature to require the user to be logged in to prevent misu
 ### Confirmation
 <img width="1249" height="619" alt="Screenshot 2025-07-28 at 21 30 53" src="https://github.com/user-attachments/assets/15a7cb9a-1253-4195-b9bd-846ed0118fd3" />
 
+### Custom 404 Error Page
+A styled "Page Not Found" screen with a friendly message and a link back to the homepage, providing a better user experience when an incorrect URL is entered.
+
+<img width="805" height="600" alt="Screenshot 2025-07-29 at 00 03 12" src="https://github.com/user-attachments/assets/5349bab2-f655-4b64-8c2a-1f3feb796661" />
+
+
 
 ## Deployment
 
