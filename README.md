@@ -22,6 +22,7 @@ Devbase is to share content and give users the ability to fully interact with it
     - [Logo](#logo)
     - [Colour Theme](#colour-theme)
   - [Final Design](#final-design)
+  - [Features](#features)
   - [Deployment](#deployment)
     - [Git Hub](#git-hub)
     - [Heroku](#heroku)
@@ -131,6 +132,49 @@ When planning what colour pallet i wanted to go with i needed to decide early on
 ## Final Design
 
 <img width="1420" height="647" alt="screenshot_2025-07-17_at_19 56 05" src="https://github.com/user-attachments/assets/074fe390-40f6-48c6-befc-fd3a3afe504c" />
+
+## Features
+
+Devbase as a whole has a pretty minimal and clean interface, as I’m aiming for zero distractions from the purpose of the blog — to read, comment, and post blogs. That being said, the two standout features I focused on, other than the required CRUD, are:
+
+### Dark / Light mode 
+This feature allows users to set their preferred theme, recognizing that we all have different needs. For example, light mode can be too bright for some users’ eyes, while dark mode may be more difficult to read for others.
+
+### Light Mode - Desktop
+<img width="1280" height="208" alt="Screenshot 2025-07-28 at 21 18 08" src="https://github.com/user-attachments/assets/4535355b-86fa-4bd7-bbf0-d5cc813ffd13" />
+
+### Light Mode - Mobile
+<img width="465" height="323" alt="Screenshot 2025-07-28 at 21 18 36" src="https://github.com/user-attachments/assets/31c51a2a-44bc-461a-ba59-85319567482c" />
+
+### Dark Mode - Desktop
+<img width="1266" height="218" alt="Screenshot 2025-07-28 at 21 28 05" src="https://github.com/user-attachments/assets/039afb96-d86e-42b5-8306-7155056a4e24" />
+
+### Dark Mode - Mobile
+<img width="466" height="334" alt="Screenshot 2025-07-28 at 21 28 53" src="https://github.com/user-attachments/assets/0d2018dc-e715-4812-86ef-a04e62c40d45" />
+
+
+### Email a Post
+Underneath each blog but above the comment section is a “share this post” button that lets readers recommend blogs to friends or family who they think will find value in the content. This is done via a form that allows the user to enter:
+
+
+ * Sender name
+
+ * Sender email
+
+ * The email address to send it to
+
+ * A comment section
+
+I have also set this feature to require the user to be logged in to prevent misuse, and the superuser/Admin has content control if any issues arise.
+
+### Share this post button
+<img width="901" height="600" alt="Screenshot 2025-07-28 at 21 17 32" src="https://github.com/user-attachments/assets/6aefaa2d-528a-4db4-99a1-3832ef7ea4d2" />
+
+### Share form
+<img width="827" height="910" alt="Screenshot 2025-07-28 at 21 17 53" src="https://github.com/user-attachments/assets/d39e6f14-7ddc-4a31-a6cb-34d791a8fe16" />
+
+### Confirmation
+<img width="1249" height="619" alt="Screenshot 2025-07-28 at 21 30 53" src="https://github.com/user-attachments/assets/15a7cb9a-1253-4195-b9bd-846ed0118fd3" />
 
 
 ## Deployment
