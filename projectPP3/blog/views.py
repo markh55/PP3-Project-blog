@@ -153,6 +153,7 @@ def delete_comment(request, comment_id):
         }),
     })
 
+@login_required
 def post_share(request, post_id):
     post = get_object_or_404(
         Post,
